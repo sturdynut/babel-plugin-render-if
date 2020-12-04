@@ -1,0 +1,30 @@
+{
+  "name": "babel-plugin-render-if",
+  "version": "1.0.0",
+  "description": "A babel plugin that allows you to use declarative-style conditional rendering in JSX",
+  "author": {
+    "name": "Matti Salokangas",
+    "email": "matti.salokangas@gmail.com",
+    "url": "matticodes.com"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "files": [
+    "src/index.js"
+  ],
+  "keywords": [
+    "babelplugin"
+  ],
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3"
+  }
+}
