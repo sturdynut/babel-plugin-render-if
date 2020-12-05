@@ -11,24 +11,29 @@
     "node": ">=8"
   },
   "scripts": {
-    "build": "babel src/index.js -o index.js",
+    "build": "rm -rf ./dist && babel src -d ./dist",
     "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:watch:update": "jest --watchAll -u",
     "test:update": "jest -u"
   },
   "files": [
-    "index.js"
+    "dist/*"
   ],
   "keywords": [
     "babelplugin"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
     "babel-jest": "^26.6.3",
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "react": "^17.0.1",
+    "react-test-renderer": "^17.0.1"
   },
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.12.1"

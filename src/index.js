@@ -1,31 +1,8 @@
-const renderIf = "RenderIf";
-const isTrue = "isTrue";
-const IsMatch = (path) => path.node.openingElement.name.name === renderIf;
+import { visitor } from "./visitor";
 
-export default function renderIfPlugin({ types: t }) {
-  return {
-    inherits: require("@babel/plugin-syntax-jsx").default,
-    visitor: {
-      JSXElement(path) {
-        if (IsMatch(path)) {
-          const condition = path.node.openingElement.attributes.find(
-            (attribute) => {
-              return attribute.name.name === isTrue;
-            }
-          ).value.expression;
+const renderIfPlugin = (babel) => ({
+  inherits: require("@babel/plugin-syntax-jsx").default,
+  visitor: visitor(babel),
+});
 
-          const children = t.react.buildChildren(path.node);
-          const [firstChild] = children;
-
-          const result = t.ConditionalExpression(
-            condition,
-            firstChild,
-            t.nullLiteral()
-          );
-
-          path.replaceWith(result);
-        }
-      },
-    },
-  };
-}
+export default renderIfPlugin;

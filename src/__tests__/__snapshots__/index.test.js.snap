@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`works 1`] = `"foo ? \\"THE CHILDREN\\" : null;"`;
+exports[`RenderIf with array children transforms as expected 1`] = `"isNestChildren ? [<span>CHILD 1</span>, <span>CHILD 2</span>] : null;"`;
+
+exports[`RenderIf with js expression as child transforms as expected 1`] = `"isNestChildren ? \`foo\` : null;"`;
+
+exports[`RenderIf with nested children transforms as expected 1`] = `"isNestChildren ? <div><span>THE CHILDREN</span></div> : null;"`;
+
+exports[`RenderIf with single child transforms as expected 1`] = `"isSingleChild ? <span>THE CHILDREN</span> : null;"`;
+
+exports[`RenderIf with text child transforms as expected 1`] = `"isTextChild ? \\"THE CHILDREN\\" : null;"`;
